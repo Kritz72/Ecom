@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/stylesheets/add-to-cart.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="/">Home</a>
+                <a href="/cart">Cart</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Your Cart</h1>
+        <% if (products.length > 0) { %>
+            <ul>
+                <% products.forEach(product => { %>
+                    <li>
+                        <img src="<%= product.imageUrl %>" alt="<%= product.name %>" width="80" height="80">
+                        <div>
+                            <strong><%= product.name %></strong>
+                            <p>Price: <b>₹<%= product.price %></b></p>
+                            <p>Quantity: <%= product.quantity %></p>
+                        </div>
+                        <form action="/cart/remove/<%= product._id %>" method="POST">
+                            <button type="submit">Remove</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>Your cart is empty. <a href="/">Start shopping!</a></p>
+        <% } %>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My E-Commerce Site</p>
+    </footer>
+</body>
+</html>

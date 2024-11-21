@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="/stylesheets/display.css" rel="stylesheet">
+    <title><%= product.name %> | E-Commerce Website</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo"><div class="symbol"></div></a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="<%= product.imageUrl %>" alt="<%= product.name %>" class="img-fluid" style="border-radius: 8px;">
+                </div>
+                <div class="col-md-6">
+                    <h1 class="product-title"><%= product.name %></h1>
+                    <p class="product-price"><b>₹<%= product.price %></b></p>
+                    <p class="product-description"><%= product.description %></p>
+                    <form action="/cart/add/<%= product.id %>" method="POST" style="display: inline;">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </form>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 My E-Commerce Site</p>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

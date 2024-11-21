@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>E-Commerce Website</title>
+    <link href="/stylesheets/ecom.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="symbol"></div>
+            <ul>
+                <li><a href="#">Home</a>
+                  
+                </li>
+                <li><a href="#">Shop</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Category 1</a></li>
+                        <li><a href="#">Category 2</a></li>
+                        <li><a href="#">Category 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Category 1</a></li>
+                        <li><a href="#">Category 2</a></li>
+                        <li><a href="#">Category 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <a href="/login" class="login-btn">
+                <i class="fas fa-user"></i> Login
+            </a>
+            <form class="search-form" action="/search" method="GET">
+                <input type="text" name="q" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+           
+        </nav>
+        
+    </header>
+
+    <main>
+       
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <img src="/images/background6.png" alt="Background 1">
+                </div>
+                <div class="slide">
+                    <img src="/images/background3.png" alt="Background 2">
+                </div>
+                <div class="slide">
+                    <img src="/images/background4.png" alt="Background 3">
+                </div>
+            </div>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+
+        <div class="parent-container">
+            
+            <div class="child-container">
+              <img src="/images/face6.jpg" alt="Image 1">
+              <span>Acne</span>
+            </div>
+            <div class="child-container">
+              <img src="/images/face4.jpeg" alt="Image 2">
+              <span>Acne Marks</span>
+            </div>
+            <div class="child-container">
+              <img src="/images/face3.avif" alt="Image 3">
+              <span>Pigmentation</span>
+            </div>
+            <div class="child-container">
+              <img src="/images/face5.webp" alt="Image 4">
+              <span>Glowing Skin</span>
+            </div>
+          </div>
+        <section class="products">
+            <div class="container">
+                <h2>Featured Products</h2>
+                <div class="scroll-container">
+                    <div class="product-list">
+                        <% products.forEach(product => { %>
+                            <a href="/display/<%= product.id %>">
+                                <div class="product-item">
+                                    <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
+                                    <h3><%= product.name %></h3>
+                                    <p><b>₹<%= product.price %></b></p>
+                                    <form action="/cart/add/<%= product.id %>" method="POST">
+                                        <button class="add-to-cart">
+                                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                                        </button>
+                                    </form>
+                                    <!-- <button class="add-to-cart">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button> -->
+                                </div>
+                            </a>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="products">
+            <div class="container">
+                <h2>Best Sellers</h2>
+                <div class="scroll-container">
+                    <div class="product-list">
+                        <% products.forEach(product => { %>
+                            <a href="/display/<%= product.id %>">
+                                <div class="product-item">
+                                    <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
+                                    <h3><%= product.name %></h3>
+                                    <p><b>₹<%= product.price %></b></p>
+                                    <form action="/cart/add/<%= product.id %>" method="POST">
+                                        <button class="add-to-cart">
+                                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                                        </button>
+                                    </form>
+                                    <!-- <button class="add-to-cart">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button> -->
+                                </div>
+                            </a>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 My E-Commerce Site</p>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(slideIndex) {
+            const slides = document.querySelector('.slider');
+            const totalSlides = slides.children.length;
+
+            // Wrap around the slide index
+            if (slideIndex < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (slideIndex >= totalSlides) {
+                currentSlide = 0;
+            } else {
+                currentSlide = slideIndex;
+            }
+
+            // Move slider
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="addprod.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add a New Product</h1>
+        <!-- views/addproduct.ejs -->
+        <form action="/add-product/add-product" method="POST" enctype="multipart/form-data">
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required><br>
+
+            <label for="image">Product Image:</label>
+            <input type="file" id="image" name="image" accept="image/*"><br>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required><br>
+          
+            
+            <button type="submit">Add Product</button>
+        </form>
+
+    </div>
+</body>
+</html>

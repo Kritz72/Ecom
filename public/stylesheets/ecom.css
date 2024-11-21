@@ -1,0 +1,439 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+header {
+    color: #030303;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    text-align: center;
+}
+
+/* Background Image for Header */
+.container1 {
+    
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    background-position: center;
+    position: relative;
+    z-index: 3;
+}
+.container1 img{
+    height:420px;
+    width:100%;
+}
+
+/* Navigation Bar Styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+/* Search Form Styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #410856;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.search-form button:hover {
+    background-color: #555;
+}
+
+/* Dropdown Menu Styling */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #3c1948;
+    padding: 10px;
+    display: block;
+}
+
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+}
+
+/* Symbol Styling */
+.symbol {
+    background-image: url('../images/symbol.jpg');
+    background-size: cover;
+    height: 60px;
+    width: 150px;
+    border-radius: 20px;
+}
+
+/* Products Section Styling */
+.products {
+    background-color: #fff;
+    padding: 2rem 0;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Horizontal Scroll Container */
+.scroll-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-bottom: 10px;
+    white-space: nowrap;
+    position: relative;
+}
+
+/* Scroll Arrow Styling */
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    padding: 5px;
+    z-index: 10;
+}
+
+.scroll-arrow.left {
+    left: 0;
+}
+
+.scroll-arrow.right {
+    right: 0;
+}
+
+/* Product List Styling */
+.product-list {
+    display: inline-flex; /* Arrange items in a row */
+    gap: 20px; /* Space between products */
+}
+
+/* Product Item Styling */
+.product-item {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 250px; /* Fixed width for uniform size */
+    height: 300px; /* Fixed height for uniform size */
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(71, 11, 87, 0.1);
+    border-radius: 5px;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-item h3 {
+    margin: 0.5rem 0;
+    color: black;
+    font-size: 1.1rem;
+}
+
+.product-item p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Add to Cart Button Styling */
+.add-to-cart {
+    background-color: #2d0f34;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.add-to-cart i {
+    margin-right: 5px;
+}
+
+.add-to-cart:hover {
+    background-color: #555;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #3f0749;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Scroll Arrow Hover */
+.scroll-arrow:hover {
+    background-color: #f9f3fc;
+    color: #0c0909;
+}
+/* Slider container styles */
+/* ============================= */
+/* Styles for Image Slider       */
+/* ============================= */
+
+/* Slider container styles */
+.slider-container {
+    position: relative; /* Ensures the navigation buttons are positioned relative to the container */
+    width: 100%;
+    max-width: 100%; /* Limits the maximum width */
+    overflow: hidden;
+    height:300px; /* Hides content overflowing outside the container */
+}
+
+/* Slider wrapper styles */
+.slider {
+    display: flex; /* Aligns slides horizontally in a row */
+    transition: transform 0.5s ease-in-out; /* Smooth animation for slide transitions */
+    width: 100%; /* Total width accommodates all slides */
+    height:200px;
+}
+
+/* Individual slide styles */
+.slide {
+    min-width: 100%; /* Each slide takes up the full width of the container */
+    box-sizing: border-box; /* Includes padding and borders in element's width and height */
+    height:800px;
+    
+    
+}
+
+.slide img {
+    width: 100%; /* Image stretches to fill the slide */
+    height: 250px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+/* Navigation button styles */
+.prev, .next {
+    position: absolute; /* Positioned relative to the .slider-container */
+    top: 50%; /* Vertically centered */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for buttons */
+    color: white; /* Button text/icon color */
+    border: none; /* Removes default border */
+    font-size: 2rem; /* Large size for buttons */
+    padding: 10px; /* Adds padding for better click area */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    z-index: 1; /* Ensures buttons appear above the slider */
+}
+
+.prev {
+    left: 10px; /* Position the previous button on the left */
+}
+
+.next {
+    right: 10px; /* Position the next button on the right */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .slide img {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+    .prev, .next {
+        font-size: 1.5rem; /* Adjust button size */
+        padding: 8px; /* Adjust padding for smaller screens */
+    }
+}
+/* .parent-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    
+    padding: 20px;
+    background-color: #f8f9f9;
+    
+    margin-top: 20px;
+  }
+
+  .child-container {
+    width: 150px;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .child-container img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #858686;
+    border-radius: 5px;
+    border-radius: 80px;
+  }
+
+  .child-container span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+  } */
+
+  .parent-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    
+    margin-top: 20px;
+    margin-right: 150px;
+    margin-left: 150px;
+}
+
+.child-container {
+    width: 150px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.child-container img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #858686;
+    border-radius: 80px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.child-container span {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.child-container:hover img {
+    transform: scale(0.9); /* Shrinks the image on hover */
+}
+
+.child-container img {
+    transform: scale(1); /* Default state resets the zoom */
+}
+
+.child-container span::after {
+    content: '→'; /* Arrow beside the text */
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: 5px; /* Space between text and arrow */
+    color: transparent;
+    transition: color 0.3s ease-in-out;
+    
+}
+
+.child-container span:hover::after {
+    color: #333; /* Arrow color appears on hover */
+}
+
+.child-container span:hover {
+    color: #007BFF; /* Changes text color on hover */
+    transform: scale(1.1); /* Expands text slightly */
+}
+/* Styling for the login button */
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.login-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+

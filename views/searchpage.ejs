@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results for "<%= query %>"</title>
+    <link href="/stylesheets/ecom.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Search Results for "<%= query %>"</h1>
+    </header>
+    <main>
+        <div class="search-results">
+            <% if (products.length > 0) { %>
+                <ul class="product-list">
+                    <% products.forEach(product => { %>
+                        <li class="product-item">
+                            <!-- Display the product image -->
+                            <img src="<%= product.imageUrl %>" alt="<%= product.name %>" class="product-image">
+                            <h2><%= product.name %></h2>
+                            
+                            <p>Price: <b>₹</b><b><%= product.price %></b></p>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>No results found for "<%= query %>".</p>
+            <% } %>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 My E-Commerce Site</p>
+    </footer>
+</body>
+</html>

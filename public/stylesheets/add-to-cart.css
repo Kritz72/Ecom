@@ -1,0 +1,114 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header nav {
+    background-color: #4a2165;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+main h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #160236;
+}
+
+main ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+main ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #fdfdfd;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+main ul li:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+main ul li img {
+    border-radius: 5px;
+}
+
+main ul li strong {
+    font-size: 18px;
+    color: #333;
+}
+
+main ul li p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+main ul li form {
+    margin-left: 15px;
+}
+
+main ul li form button {
+    background-color: #6c2a2a;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+main ul li form button:hover {
+    background-color: #e60000;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    font-size: 14px;
+    color: #555;
+}
+
+footer p {
+    margin: 0;
+}
