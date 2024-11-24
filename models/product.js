@@ -6,7 +6,8 @@ const productSchema = new mongoose.Schema({
     name: String,
     price: Number,
     imageUrl: String,// This will store the image path
-    description: String
+    description: String,
+    category: String
 });
 
 const Product = mongoose.model('Product', productSchema);

@@ -8,12 +8,34 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div>
-                <a href="/">Home</a>
-                <a href="/cart">Cart</a>
-            </div>
-        </nav>
+            <nav>
+                <div class="symbol"></div>
+                <ul>
+                    <li><a href="#">Home</a>
+                      
+                    </li>
+                    <li><a href="#">Shop</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Category 1</a></li>
+                            <li><a href="#">Category 2</a></li>
+                            <li><a href="#">Category 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Category 1</a></li>
+                            <li><a href="#">Category 2</a></li>
+                            <li><a href="#">Category 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+               
+                <form class="search-form" action="/search" method="GET">
+                    <input type="text" name="q" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </form>
+             </nav>
     </header>
 
     <main>

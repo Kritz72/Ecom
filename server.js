@@ -7,6 +7,11 @@ import searchRouter from './routes/searchpage.js'; // Import the search route
 import displaypage from './routes/display_page.js';
 import Product from './models/product.js';
 import cartRouter from './routes/addTocart.js';
+import acneproduct from './routes/acne_product.js';
+
+
+
+
 
 
 const app = express();
@@ -51,6 +56,8 @@ app.get('/', async (req, res) => {
     }
 });
 
+
+
 // Use the `addproductRouter` for /add-product routes
 app.use('/add-product', addproductRouter);
 
@@ -61,6 +68,9 @@ app.use('/display', displaypage );
 
 
 app.use('/cart', cartRouter);
+app.use('/acne', acneproduct);
+
+
 
 
 // Start the server

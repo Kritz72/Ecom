@@ -7,42 +7,130 @@ body {
 }
 
 /* Header */
+/* Header Styling */
 header {
-    background-color: #4a1f78;
-    padding: 10px 20px;
+    color: #030303;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    text-align: center;
+}
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+/* Cart Logo Styling */
+nav ul li a img {
+    width: 30px; /* Adjust size */
+    height: auto;
+    display: inline-block;
+    margin-right: 8px; /* Space between image and text */
+    vertical-align: middle; /* Align with text */
 }
 
-header nav .logo {
-    font-size: 24px;
+nav ul li a h6 {
+    display: inline-block;
+    font-size: 16px; /* Adjust font size */
     font-weight: bold;
-    color: #fff;
-    text-decoration: none;
+    color: #333; /* Adjust text color */
+    margin: 0;
+    vertical-align: middle; /* Align with image */
 }
 
-header nav ul {
+nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: inherit; /* Inherit text color from parent */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+nav ul li {
+    position: relative;
+}
+
+/* Additional styling for cart hover or dropdown */
+nav ul li:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    
+}
+
+/* Search Form Styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #410856;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.search-form button:hover {
+    background-color: #555;
+}
+
+
+/* Dropdown Menu Styling */
+nav ul {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
     display: flex;
 }
 
-header nav ul li {
-    margin-left: 20px;
+nav ul li {
     position: relative;
     margin-right: 20px;
 }
 
-header nav ul li a {
+nav ul li a {
     text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    padding:10px;
-    display:block;
+    color: #3c1948;
+    padding: 10px;
+    display: block;
 }
 
 nav ul li ul.dropdown {
@@ -56,11 +144,44 @@ nav ul li ul.dropdown {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-header nav ul li a:hover {
-    text-decoration: underline;
+nav ul li:hover ul.dropdown {
     display: block;
 }
 
+/* Symbol Styling */
+.symbol {
+    background-image: url('../images/TheDermaCoLogo.webp');
+    background-size: cover;
+    height: 42px;
+    width: 150px;
+    object-fit: cover;
+   
+    
+}
+
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.1);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn img {
+    margin-right: 8px; /* Space between icon and text */
+    width:25px;
+    height:25px;
+}
+
+.login-btn:hover {
+    
+    transform: scale(1.1); 
+}
 /* Main Content */
 main .container {
     background-color: white;
@@ -92,7 +213,7 @@ main .container {
 }
 
 .add-to-cart {
-    background-color: #333139;
+    background-color: #05410e;
     color: white;
     border: none;
     padding: 10px 20px;

@@ -7,17 +7,17 @@ const router = express.Router();
 
 // Route to render the Add Product page
 router.get('/', (req, res) => {
-    res.render('addproduct'); // Render addproduct.ejs
+    res.render('addProduct'); // Render addproduct.ejs
 });
 
 // Handle the form submission from Add Product page with image upload
 router.post('/add-product', upload.single('image'), async (req, res) => {
-    const { name, price, description } = req.body;
+    const { name, price, description, category } = req.body;
     console.log(req.body)
     const imageUrl = req.file ? `/uploads/${req.file.filename}` : ''; // Get image path if file is uploaded
 
     // Create a new product instance with the image path and save it to MongoDB
-    const product = new Product({ name, price, imageUrl, description });
+    const product = new Product({ name, price, imageUrl, description, category });
     
     try {
         await product.save();

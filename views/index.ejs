@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>E-Commerce Website</title>
     <link href="/stylesheets/ecom.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -29,15 +30,20 @@
                         <li><a href="#">Category 3</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/cart">
+                    <i ></i>
+                    <img src="/images/cart-icon.jpg" alt="Cart"><h6>Cart</h6>
+                </a></li>
             </ul>
-            <a href="/login" class="login-btn">
-                <i class="fas fa-user"></i> Login
-            </a>
+           
             <form class="search-form" action="/search" method="GET">
                 <input type="text" name="q" placeholder="Search...">
                 <button type="submit">Search</button>
             </form>
+            <a href="/login" class="login-btn">
+                <i class="fas fa-user"></i>
+                <img src="/images/login.png" alt="login"><h6>Login</h6>
+            </a>
            
         </nav>
         
@@ -60,13 +66,15 @@
             <button class="prev" onclick="prevSlide()">&#10094;</button>
             <button class="next" onclick="nextSlide()">&#10095;</button>
         </div>
-
+        <h4 style="align-items: center; margin-left: 550px; font-style: bold;">Shop By Concern</h4>
         <div class="parent-container">
-            
             <div class="child-container">
-              <img src="/images/face6.jpg" alt="Image 1">
-              <span>Acne</span>
+                <a href="/acne" class="product-link">
+                    <img src="/images/face6.jpg" alt="Image 1">
+                    <span>Acne</span>
+                </a>
             </div>
+            
             <div class="child-container">
               <img src="/images/face4.jpeg" alt="Image 2">
               <span>Acne Marks</span>
@@ -93,7 +101,7 @@
                                     <p><b>₹<%= product.price %></b></p>
                                     <form action="/cart/add/<%= product.id %>" method="POST">
                                         <button class="add-to-cart">
-                                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                                             Add to Cart
                                         </button>
                                     </form>
                                     <!-- <button class="add-to-cart">
@@ -106,8 +114,43 @@
                 </div>
             </div>
         </section>
+        <div class="featured-container">
+            <div class="row">
+                <div class="featured-item">
+                    <img src="/images/pic1.png" alt="Featured Image 1">
+                    
+                </div>
+                <div class="featured-item">
+                    <img src="/images/pic2.png" alt="Featured Image 2">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="featured-item">
+                    <img src="/images/pic3.png" alt="Featured Image 3">
+                   
+                </div>
+                <div class="featured-item">
+                    <img src="/images/pic4.png" alt="Featured Image 4">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="featured-column">
+            
+                <div class="column">
+                    <img src="/images/Companies.png" alt="Featured Image 1">
+                    
+                </div>
+                
+                <div class="column2">
+                        <img src="/images/child.png" alt="Featured Image 3">
+                       
+                </div>
+        </div>
         
-        <section class="products">
+        
+        <section class="productss">
             <div class="container">
                 <h2>Best Sellers</h2>
                 <div class="scroll-container">
@@ -118,6 +161,7 @@
                                     <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
                                     <h3><%= product.name %></h3>
                                     <p><b>₹<%= product.price %></b></p>
+                                    <h5></h5>
                                     <form action="/cart/add/<%= product.id %>" method="POST">
                                         <button class="add-to-cart">
                                             <i class="fas fa-shopping-cart"></i> Add to Cart
