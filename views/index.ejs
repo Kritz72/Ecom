@@ -31,19 +31,28 @@
                     </ul>
                 </li>
                 <li><a href="/cart">
-                    <i ></i>
-                    <img src="/images/cart-icon.jpg" alt="Cart"><h6>Cart</h6>
-                </a></li>
+                    <i >
+                        <img src="/images/cart-icon.jpg" alt="Cart"><h6>Cart</h6>
+                    </i>
+                    </a>
+                
+                </li>
             </ul>
            
             <form class="search-form" action="/search" method="GET">
                 <input type="text" name="q" placeholder="Search...">
                 <button type="submit">Search</button>
             </form>
-            <a href="/login" class="login-btn">
-                <i class="fas fa-user"></i>
-                <img src="/images/login.png" alt="login"><h6>Login</h6>
-            </a>
+            <% if (session.username) { %>
+                <a href="/logout" class="logout-btn">
+                    <img src="/images/logout.png" alt="Logout"><h6>Logout</h6>
+                </a>
+            <% } else { %>
+                <a href="/log" class="login-btn">
+                    <img src="/images/login.png" alt="Login"><h6>Login</h6>
+                </a>
+            <% } %>
+          
            
         </nav>
         
@@ -69,23 +78,30 @@
         <h4 style="align-items: center; margin-left: 550px; font-style: bold;">Shop By Concern</h4>
         <div class="parent-container">
             <div class="child-container">
-                <a href="/acne" class="product-link">
-                    <img src="/images/face6.jpg" alt="Image 1">
-                    <span>Acne</span>
-                </a>
+                <img src="/images/face6.jpg" alt="Image 1">
+                    <a href="/acne" class="product-link">
+                        <span>Acne</span>
+                    </a>
             </div>
             
             <div class="child-container">
               <img src="/images/face4.jpeg" alt="Image 2">
-              <span>Acne Marks</span>
+              <a href="/acne_marks" class="product-link">
+                <span>Acne Marks</span>
+              </a>
+              
             </div>
             <div class="child-container">
               <img src="/images/face3.avif" alt="Image 3">
+              <a href="/pigmentation" class="product-link">
               <span>Pigmentation</span>
+              </a>
             </div>
             <div class="child-container">
               <img src="/images/face5.webp" alt="Image 4">
-              <span>Glowing Skin</span>
+              <a href="/glowing_skin" class="product-link">
+                <span>Glowing Skin</span>
+              </a>
             </div>
           </div>
         <section class="products">
@@ -182,6 +198,8 @@
 
     <footer>
         <div class="container">
+            <p>100% Payment Protection, Easy Return Policy</p>
+            <img src="/images/payment.png" alt="Payment Gateway" class="payment">
             <p>&copy; 2024 My E-Commerce Site</p>
         </div>
     </footer>

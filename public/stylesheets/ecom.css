@@ -122,6 +122,7 @@ nav ul li:hover .cart-dropdown {
     padding: 5px 10px;
     font-size: 16px;
     background-color: #410856;
+    box-shadow: 5px 5px 10px rgb(40, 39, 39);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -152,6 +153,7 @@ nav ul li a {
     color: #3c1948;
     padding: 10px;
     display: block;
+    font-weight: bold;
 }
 
 nav ul li ul.dropdown {
@@ -163,10 +165,12 @@ nav ul li ul.dropdown {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
 }
 
 nav ul li:hover ul.dropdown {
     display: block;
+    
 }
 
 /* Symbol Styling */
@@ -176,6 +180,7 @@ nav ul li:hover ul.dropdown {
     height: 42px;
     width: 150px;
     object-fit: cover;
+    
    
     
 }
@@ -289,10 +294,16 @@ nav ul li:hover ul.dropdown {
 
 /* Footer Styling */
 footer {
-    background-color: #3f0749;
-    color: #fff;
-    text-align: center;
+    background-color: #fcfbfbe0;
+    color: #150202;
+    text-align:left;
     padding: 1rem 0;
+}
+footer .container img{
+    width:100%;
+    height:60px;
+    position: relative;
+    
 }
 
 /* Scroll Arrow Hover */
@@ -435,6 +446,7 @@ footer {
     object-fit: cover;
     border: 1px solid #858686;
     border-radius: 80px;
+    box-shadow: 5px 5px 10px rgba(129, 69, 13, 0.1);
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
 }
@@ -447,6 +459,7 @@ footer {
     font-weight: bold;
     position: relative;
     cursor: pointer;
+    
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .child-container:hover img {
@@ -480,12 +493,13 @@ footer {
     display: inline-flex;
     align-items: center;
     
-    box-shadow: 5px 10px 10px rgba(0,0,0,0.1);
+    box-shadow: 5px 10px 10px rgba(14, 13, 13, 0.1);
     padding: 8px 15px;
     border-radius: 5px;
     text-decoration: none;
     font-size: 16px;
     margin-left: 20px;
+    color: #030303;
     transition: background-color 0.3s ease;
 }
 

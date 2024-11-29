@@ -1,4 +1,5 @@
 import express from 'express';
+import session from 'express-session';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
@@ -8,13 +9,23 @@ import displaypage from './routes/display_page.js';
 import Product from './models/product.js';
 import cartRouter from './routes/addTocart.js';
 import acneproduct from './routes/acne_product.js';
-
+import acnemarks from './routes/acne_marks.js';
+import pigmentation from './routes/pigmentation.js';
+import glowingskin from './routes/glowing.js';
+import login from './routes/loginpage.js';
+import registration from './routes/registration.js';
 
 
 
 
 
 const app = express();
+app.use(session({
+    secret: 'your_secret_key', // Replace with a secure secret
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Set to true if using HTTPS
+}));
 const port = 3000;
 
 const __filename = fileURLToPath(import.meta.url);
@@ -39,11 +50,19 @@ mongoose.connect(mongoURI, {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+
+app.use((req, res, next) => {
+    res.locals.session = req.session;
+    next();
+});
+
+
 // Serve static files from the public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware to parse URL-encoded bodies (for form data)
 app.use(express.urlencoded({ extended: true }));
+
 
 // Route for the homepage to display products
 app.get('/', async (req, res) => {
@@ -58,6 +77,7 @@ app.get('/', async (req, res) => {
 
 
 
+
 // Use the `addproductRouter` for /add-product routes
 app.use('/add-product', addproductRouter);
 
@@ -69,8 +89,12 @@ app.use('/display', displaypage );
 
 app.use('/cart', cartRouter);
 app.use('/acne', acneproduct);
+app.use('/acne_marks', acnemarks);
+app.use('/pigmentation', pigmentation);
+app.use('/glowing_skin', glowingskin);
 
-
+app.use('/log',login);
+app.use('/register', registration)
 
 
 // Start the server
