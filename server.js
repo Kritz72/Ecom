@@ -45,7 +45,7 @@ mongoose.connect(mongoURI, {
 .catch((error) => {
     console.error('MongoDB connection error:', error);
 });
-
+app.use(express.json());
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));

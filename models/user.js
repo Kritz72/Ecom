@@ -3,19 +3,27 @@ import mongoose from 'mongoose';
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
-        unique: true,
+        
+        
         trim: true
     },
     password: {
         type: String,
-        required: true
+        
     },
     email: {
         type: String,
-        required: true,
+        
         unique: true,
         trim: true
+    },
+    otp: {
+        type: Number,
+        default: null
+    },
+    otpExpires: {
+        type: Date,
+        default: null
     },
     createdAt: {
         type: Date,

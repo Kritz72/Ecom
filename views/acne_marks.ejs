@@ -48,7 +48,11 @@
                         <div class="card-body">
                             <h5 class="card-title"><%= product.name %></h5>
                             <p class="card-text">Price: ₹<%= product.price %></p>
-                            
+                            <form action="/cart/add/<%= product.id %>" method="POST">
+                                <button class="add-to-cart">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

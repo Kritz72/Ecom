@@ -514,7 +514,25 @@ footer .container img{
     transform: scale(1.1); 
 }
 
+.logout-btn{
+    display: inline-flex;
+    align-items: center;
+    
+    box-shadow: 5px 10px 10px rgba(14, 13, 13, 0.1);
+    padding: 8px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 20px;
+    color: #030303;
+    transition: background-color 0.3s ease;
+    
+}
 
+.logout-btn:hover {
+    color:#0c4079
+    transform: scale(1.1); 
+}
 
 .featured-container {
     display: flex;
