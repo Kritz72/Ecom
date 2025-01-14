@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/cart-icon.jpg" type="image/x-icon">
+    <title>Seller Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="/stylesheets/seller.css" rel="stylesheet">
+</head>
+<body>
+    <% if (session.username && session.isSeller) { %>
+    <header class="dashboard-header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">
+                <img src="/images/cart-icon.jpg" alt="Logo" class="logo">
+                Seller Dashboard
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/products">My Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/orders">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/log/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-main container mt-5">
+        <h1>Welcome, <%= session.username %></h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Products</h5>
+                        <p class="card-text"><%= totalProducts %></p>
+                        <a href="/dashboard/products" class="btn btn-primary">Manage Products</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Orders</h5>
+                        <p class="card-text"><%= totalOrders %></p>
+                        <a href="/dashboard/orders" class="btn btn-primary">View Orders</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Earnings</h5>
+                        <p class="card-text">₹<%= totalEarnings %></p>
+                        <a href="/dashboard/earnings" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-5">
+            <h2>Quick Actions</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="/dashboard/add-product" class="btn btn-success w-100">Add New Product</a>
+                </div>
+                <div class="col-md-6">
+                    <a href="/dashboard/settings" class="btn btn-secondary w-100">Account Settings</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="dashboard-footer text-center mt-5">
+        <p>&copy; 2024 Seller Dashboard. All Rights Reserved.</p>
+    </footer>
+    <% } else { %>
+    <div class="container text-center mt-5">
+        <h2>Unauthorized Access</h2>
+        <p>Please <a href="/log">log in</a> as a seller to access the dashboard.</p>
+    </div>
+    <% } %>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-cPLJy5V/9zy0wUqfY5X+7CkQSjIVrx6wu70ueXIR5htgAs6CBHXUbgmUMVdAyjUu" crossorigin="anonymous"></script>
+</body>
+</html>

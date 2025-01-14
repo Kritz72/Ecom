@@ -6,7 +6,6 @@ body {
     color: #333;
 }
 
-/* Header */
 /* Header Styling */
 header {
     color: #030303;
@@ -17,11 +16,28 @@ header {
 header h1 {
     text-align: center;
 }
+
+/* Background Image for Header */
+.container1 {
+    
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    background-position: center;
+    position: relative;
+    z-index: 3;
+}
+.container1 img{
+    height:420px;
+    width:100%;
+}
+
+/* Navigation Bar Styling */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     height: 50px;
     width: 100%;
@@ -80,8 +96,8 @@ nav ul li:hover .cart-dropdown {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px;
     z-index: 1000;
-    
 }
+
 
 /* Search Form Styling */
 .search-form {
@@ -101,6 +117,7 @@ nav ul li:hover .cart-dropdown {
     padding: 5px 10px;
     font-size: 16px;
     background-color: #410856;
+    box-shadow: 5px 5px 10px rgb(40, 39, 39);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -131,6 +148,7 @@ nav ul li a {
     color: #3c1948;
     padding: 10px;
     display: block;
+    font-weight: bold;
 }
 
 nav ul li ul.dropdown {
@@ -142,18 +160,20 @@ nav ul li ul.dropdown {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
 }
 
 nav ul li:hover ul.dropdown {
     display: block;
+    
 }
 
 /* Symbol Styling */
 .symbol {
-    background-image: url('../images/TheDermaCoLogo.webp');
+    background-image: url('../images/Lumiere.png');
     background-size: cover;
-    height: 42px;
-    width: 150px;
+    height: 37px;
+    width: 112px;
     object-fit: cover;
    
     
@@ -316,3 +336,185 @@ footer {
     justify-content: center;
 }
 
+.user-actions {
+    display: inline-block;
+   
+    margin-right: 55px;
+    gap: 10px;
+}
+
+.profile-btn img, .login-btn img {
+    width: 55px;
+    height: 38px;
+
+}
+.profile-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+    border-radius: 50%;
+}
+.profile-btn, .logout-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.profile-btn h6, .logout-btn h6 {
+    
+    font-size: 16px;
+    color: #333;
+}
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    
+    
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 20px;
+    color: #030303;
+    transition: background-color 0.3s ease;
+}
+.login-btn img {
+    margin-right: 8px; /* Space between icon and text */
+    width:10px;
+    height:25px;
+}
+
+.login-btn:hover {
+    
+    transform: scale(1.1); 
+}
+.user-actions {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    width: 150px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-menu table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dropdown-menu td {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    color: #007bff;
+    font-weight: bold;
+}
+.user-actions {
+    display: inline-block;
+   
+    margin-right: 55px;
+    gap: 10px;
+}
+
+.profile-btn img, .login-btn img {
+    width: 55px;
+    height: 38px;
+}
+
+.profile-btn, .logout-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.profile-btn h6, .logout-btn h6 {
+    
+    font-size: 16px;
+    color: #333;
+}
+.user-actions {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    width: 150px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-menu table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dropdown-menu td {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    color: #007bff;
+    font-weight: bold;
+}

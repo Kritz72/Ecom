@@ -14,6 +14,11 @@ import pigmentation from './routes/pigmentation.js';
 import glowingskin from './routes/glowing.js';
 import login from './routes/loginpage.js';
 import registration from './routes/registration.js';
+import updatedetails from './routes/profile_details.js';
+import sellerdetails from './routes/seller.js';
+import sellerRegistrationRouter from './routes/seller_reg.js';
+
+
 
 
 
@@ -26,7 +31,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false } // Set to true if using HTTPS
 }));
-const port = 3000;
+const port = 3003;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -77,6 +82,26 @@ app.get('/', async (req, res) => {
 
 
 
+// Derma Cash page route
+app.get('/dermacash', (req, res) => {
+    if (req.session.username) {
+        // Sample data for Derma Cash page
+        const user = {
+            username: req.session.username,
+            dermaCashBalance: 500, // Example balance
+        };
+
+        const cashbackHistory = [
+            { date: '2024-12-10', description: 'Purchase Cashback', amount: 50 },
+            { date: '2024-12-12', description: 'Referral Cashback', amount: 100 },
+        ];
+
+        res.render('dermacash', { user, cashbackHistory });
+    } else {
+        res.redirect('/log'); // Redirect to login if not logged in
+    }
+});
+
 
 // Use the `addproductRouter` for /add-product routes
 app.use('/add-product', addproductRouter);
@@ -86,7 +111,7 @@ app.use('/search', searchRouter);
 
 app.use('/display', displaypage );
 
-
+app.use('/profile',updatedetails);
 app.use('/cart', cartRouter);
 app.use('/acne', acneproduct);
 app.use('/acne_marks', acnemarks);
@@ -94,8 +119,9 @@ app.use('/pigmentation', pigmentation);
 app.use('/glowing_skin', glowingskin);
 
 app.use('/log',login);
-app.use('/register', registration)
-
+app.use('/register', registration);
+app.use('/seller', sellerdetails);
+app.use('/seller_reg', sellerRegistrationRouter);
 
 // Start the server
 app.listen(port, () => {

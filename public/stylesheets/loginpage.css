@@ -7,29 +7,78 @@ body {
 }
 
 /* Header Styling */
-header nav {
-    background-color: #3f51b5;
-    padding: 1rem;
+header {
+    color: #030303;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    text-align: center;
+}
+
+/* Background Image for Header */
+.container1 {
+    
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    background-position: center;
+    position: relative;
+    z-index: 3;
+}
+.container1 img{
+    height:420px;
+    width:100%;
+}
+
+/* Navigation Bar Styling */
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+/* Cart Logo Styling */
+nav ul li a img {
+    width: 30px; /* Adjust size */
+    height: auto;
+    display: inline-block;
+    margin-right: 8px; /* Space between image and text */
+    vertical-align: middle; /* Align with text */
 }
 
-nav ul {
-    list-style-type: none;
-    display: flex;
-    gap: 1rem;
+nav ul li a h6 {
+    display: inline-block;
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold;
+    color: #333; /* Adjust text color */
+    margin: 0;
+    vertical-align: middle; /* Align with image */
 }
 
 nav ul li a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: white;
-    font-weight: bold;
+    padding: 10px 15px;
+    color: inherit; /* Inherit text color from parent */
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #ffcc00;
+    color: #007bff; /* Change color on hover */
+}
+
+nav ul li {
+    position: relative;
 }
 
 /* Login Container */

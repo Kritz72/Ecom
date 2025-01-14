@@ -1,0 +1,353 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f9;
+    color: #333;
+}
+.symbol {
+    background-image: url('../images/Lumiere.png');
+    background-size: cover;
+    height: 37px;
+    width: 112px;
+    object-fit: cover;
+   
+    
+}
+header {
+    color: #030303;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    text-align: center;
+}
+
+
+
+/* Navigation styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+nav ul li a img {
+    width: 30px; /* Adjust size */
+    height: auto;
+    display: inline-block;
+    margin-right: 8px; /* Space between image and text */
+    vertical-align: middle; /* Align with text */
+}
+
+
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: inherit; /* Inherit text color from parent */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+nav ul li:hover > .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.dropdown li {
+    margin: 0;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.dropdown li a {
+    color: #333;
+    font-size: 20px;
+}
+
+nav ul li a:hover,
+.dropdown li a:hover {
+    color: #4CAF50;
+    
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    padding-right: 140px;
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+.search-form button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #410856;
+    box-shadow: 5px 5px 10px rgb(40, 39, 39);
+    background-color: #6b0f9a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #46224c;
+}
+
+/* Adjust cart icon size */
+nav ul li a img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+/* Profile main content */
+main.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+main h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+main ul {
+    list-style: none;
+    padding: 0;
+}
+
+main ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+main a.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #d9534f;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+main a.btn:hover {
+    background-color: #c9302c;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    main.container {
+        margin: 20px;
+        padding: 15px;
+    }
+}
+.profile-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.tabs {
+    width: 200px;
+    border-right: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.tab {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+.tab.active {
+    background-color: #fff;
+    font-weight: bold;
+    border-left: 4px solid #007bff;
+}
+.tab-content-container {
+    flex: 1;
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+.tab-content h3 {
+    margin-bottom: 15px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    
+    
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 20px;
+    color: #030303;
+    transition: background-color 0.3s ease;
+}
+.login-btn img {
+    margin-right: 8px; /* Space between icon and text */
+    width:10px;
+    height:25px;
+}
+
+.login-btn:hover {
+    
+    transform: scale(1.1); 
+}
+.user-actions {
+    position: relative;
+    display: inline-block;
+    padding-right: 100px;
+}
+
+.profile-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    width: 150px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-menu table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dropdown-menu td {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    color: #007bff;
+    font-weight: bold;
+}
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+}

@@ -97,10 +97,10 @@ nav ul li:hover ul.dropdown {
 
 /* Symbol Styling */
 .symbol {
-    background-image: url('../images/TheDermaCoLogo.webp');
+    background-image: url('../images/Lumiere.png');
     background-size: cover;
-    height: 42px;
-    width: 150px;
+    height: 37px;
+    width: 112px;
     object-fit: cover;
    
     
@@ -191,4 +191,58 @@ footer {
 
 footer p {
     margin: 0;
+}
+.user-actions {
+    position: relative;
+    display: inline-block;
+    padding-right: 120px;
+}
+
+.profile-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    width: 150px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-menu table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dropdown-menu td {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    color: #007bff;
+    font-weight: bold;
 }

@@ -12,7 +12,7 @@
         <nav>
             <div class="symbol"></div>
             <ul>
-                <li><a href="#">Home</a>
+                <li><a href="/">Home</a>
                   
                 </li>
                 <li><a href="#">Shop</a>
@@ -39,7 +39,49 @@
                 <input type="text" name="q" placeholder="Search...">
                 <button type="submit">Search</button>
             </form>
-           
+            <% if (session.username) { %>
+                <div class="user-actions">
+                    <a  class="profile-btn">
+                        <img src="<%= session.profilePic || '/images/User.png' %>" alt="Profile">
+                    </a>
+                    <div class="dropdown-menu">
+                        <table>
+                            <tr>
+                                <td><a href="/profile">Profile</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="/dermacash">Derma Cash</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="/address">Your Address</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="/contact-us">Contact Us</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="/Seller">Sell</a></td>
+                            </tr>
+                            <tr>
+                            
+                            <tr>
+                                <td>
+                                    <a href="/log/logout" class="logout-btn">
+                            Logout
+                                
+                                </a>
+                            </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            <% } else { %>
+                <a href="/log" class="login-btn">
+                    <img src="/images/login.png" alt="Login"><h6>Login</h6>
+                </a>
+            <% } %>
+         </nav>
+    </header>
+
            
         </nav>
         
@@ -72,5 +114,27 @@
         </div>
     </footer>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        const profileBtn = document.querySelector('.profile-btn');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+        profileBtn.addEventListener('mouseover', () => {
+            dropdownMenu.classList.add('show');
+            setTimeout(() => {
+                dropdownMenu.classList.remove('show');
+            }, 5000); // Dropdown will stay visible for 3 seconds
+        });
+    
+        dropdownMenu.addEventListener('mouseover', () => {
+            clearTimeout(timeout);
+            dropdownMenu.classList.add('show');
+        });
+    
+        dropdownMenu.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                dropdownMenu.classList.remove('show');
+            }, 5000);
+        });
+    </script>
 </body>
 </html>

@@ -17,6 +17,14 @@ const userSchema = new mongoose.Schema({
         unique: true,
         trim: true
     },
+    profile_pic: {
+        type:String,
+        default:null
+    },
+    contact_num: {
+        type: Number,
+        default: null
+    },
     otp: {
         type: Number,
         default: null

@@ -42,7 +42,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     height: 50px;
     width: 100%;
@@ -175,12 +175,11 @@ nav ul li:hover ul.dropdown {
 
 /* Symbol Styling */
 .symbol {
-    background-image: url('../images/TheDermaCoLogo.webp');
+    background-image: url('../images/Lumiere.png');
     background-size: cover;
-    height: 42px;
-    width: 150px;
+    height: 37px;
+    width: 112px;
     object-fit: cover;
-    
    
     
 }
@@ -493,7 +492,7 @@ footer .container img{
     display: inline-flex;
     align-items: center;
     
-    box-shadow: 5px 10px 10px rgba(14, 13, 13, 0.1);
+    
     padding: 8px 15px;
     border-radius: 5px;
     text-decoration: none;
@@ -505,7 +504,7 @@ footer .container img{
 
 .login-btn img {
     margin-right: 8px; /* Space between icon and text */
-    width:25px;
+    width:10px;
     height:25px;
 }
 
@@ -514,25 +513,8 @@ footer .container img{
     transform: scale(1.1); 
 }
 
-.logout-btn{
-    display: inline-flex;
-    align-items: center;
-    
-    box-shadow: 5px 10px 10px rgba(14, 13, 13, 0.1);
-    padding: 8px 15px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-size: 16px;
-    margin-left: 20px;
-    color: #030303;
-    transition: background-color 0.3s ease;
-    
-}
 
-.logout-btn:hover {
-    color:#0c4079
-    transform: scale(1.1); 
-}
+
 
 .featured-container {
     display: flex;
@@ -604,4 +586,79 @@ footer .container img{
     height: 600px;
     border-radius: 8px;
 }
- 
+.user-actions {
+    display: inline-block;
+   
+    margin-right: 55px;
+    gap: 10px;
+}
+
+.profile-btn img, .login-btn img {
+    width: 55px;
+    height: 38px;
+}
+
+.profile-btn, .logout-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.profile-btn h6, .logout-btn h6 {
+    
+    font-size: 16px;
+    color: #333;
+}
+.user-actions {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    width: 150px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-menu table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dropdown-menu td {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    color: #007bff;
+    font-weight: bold;
+}

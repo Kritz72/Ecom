@@ -12,27 +12,37 @@ router.post('/register', async (req, res) => {
         return res.status(400).send('Passwords do not match.');
     }
 
-    // Find the user by email to validate OTP
-    const user = await User.findOne({ email });
-    if (!user) {
-        return res.status(404).send('User not found. Please request a new OTP.');
-    }
-
-    // Check if OTP matches and hasn't expired
-    if (user.otp !== Number(otp) || user.otpExpires < new Date()) {
-        return res.status(400).send('Invalid or expired OTP.');
-    }
-
-    // Clear OTP and proceed with registration
-    user.username= username;
-    user.password = password;
-    user.otp = null;
-    user.otpExpires = null;
-
     try {
+        // Check if the username or email already exists
+        const existingUser = await User.findOne({
+            $or: [{ username }, { email }]
+        });
+
+        if (existingUser) {
+            return res.status(400).send('User with this username or email already exists.');
+        }
+
+        // Find the user by email to validate OTP
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).send('User not found. Please request a new OTP.');
+        }
+
+        // Check if OTP matches and hasn't expired
+        if (user.otp !== Number(otp) || user.otpExpires < new Date()) {
+            return res.status(400).send('Invalid or expired OTP.');
+        }
+
+        // Clear OTP and proceed with registration
+        user.username = username;
+        user.password = password;
+        user.otp = null;
+        user.otpExpires = null;
+
         await user.save();
         res.redirect('/log');
     } catch (error) {
+        console.error('Error during registration:', error);
         res.status(500).send('Error registering user.');
     }
 });
@@ -47,19 +57,24 @@ router.post('/request-otp', async (req, res) => {
         let user = await User.findOne({ email });
         if (!user) {
             user = new User({ email, otp, otpExpires });
-        } else {
-            user.otp = otp;
-            user.otpExpires = otpExpires;
-        }
+            await user.save();
+            await sendOtpEmail(email, otp);
+            res.status(200).json({ success: true, message: 'OTP sent to email.' });
+        } 
+        else {
+            res.status(200).json({ success: false, message: 'User exist!' });
+        };
+            
+            // user.otp = otp;
+            // user.otpExpires = otpExpires;
+        
 
-        await user.save();
-        await sendOtpEmail(email, otp);
-        res.status(200).json({ success: true, message: 'OTP sent to email.' });
+       
+        
     } catch (error) {
         console.error('Error sending OTP:', error);
         res.status(500).json({ success: false, message: 'Error sending OTP.' });
     }
 });
-
 
 export default router;

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derma Cash</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="/stylesheets/dermacash.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/shop">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cart">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Sidebar Navigation -->
+                <div class="list-group">
+                    <a href="#dermacash" class="list-group-item list-group-item-action active">Derma Cash</a>
+                    <a href="#cashback-history" class="list-group-item list-group-item-action">Cashback History</a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <!-- Content Sections -->
+
+                <!-- Derma Cash Section -->
+                <section id="dermacash" class="mb-5">
+                    <h2>Derma Cash</h2>
+                    <p>Your total Derma Cash balance: <strong><%= user.dermaCashBalance %></strong></p>
+                    <p>Use your Derma Cash during checkout to save on your favorite products.</p>
+                </section>
+
+                <!-- Cashback History Section -->
+                <section id="cashback-history">
+                    <h2>Cashback History</h2>
+                    <% if (cashbackHistory.length > 0) { %>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% cashbackHistory.forEach(entry => { %>
+                                    <tr>
+                                        <td><%= entry.date %></td>
+                                        <td><%= entry.description %></td>
+                                        <td><%= entry.amount %></td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    <% } else { %>
+                        <p>You have no cashback history yet.</p>
+                    <% } %>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 My E-Commerce Site</p>
+    </footer>
+</body>
+</html>

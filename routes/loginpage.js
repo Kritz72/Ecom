@@ -26,8 +26,12 @@ router.post('/login', async (req, res) => {
         const user = await User.findOne({ username, password });
 
         if (user) {
-            // Save user info in session
-            req.session.username = username;
+            // Save user info, including profile picture, in session
+            req.session.username = user.username;
+            req.session.email = user.email;
+            req.session.createdAt = user.createdAt;
+            req.session.profilePic = user.profile_pic; // Store profile picture in session
+
             return res.redirect('/'); // Redirect to the homepage or another page
         } else {
             return res.status(401).send('Invalid username or password');
@@ -37,6 +41,8 @@ router.post('/login', async (req, res) => {
         return res.status(500).send('An error occurred during login');
     }
 });
+
+
 
 // Logout route
 router.get('/logout', (req, res) => {
