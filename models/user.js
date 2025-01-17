@@ -36,7 +36,16 @@ const userSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    storename:{
+        type: String,
+        default:null
+    },
+    isSeller:{
+        type: Boolean,
+        default: false
     }
+
 });
 
 const User = mongoose.model('User', userSchema);

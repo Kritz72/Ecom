@@ -31,6 +31,7 @@ router.post('/login', async (req, res) => {
             req.session.email = user.email;
             req.session.createdAt = user.createdAt;
             req.session.profilePic = user.profile_pic; // Store profile picture in session
+            req.session.isSeller= user.isSeller;
 
             return res.redirect('/'); // Redirect to the homepage or another page
         } else {

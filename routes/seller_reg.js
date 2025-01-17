@@ -1,29 +1,30 @@
 import express from 'express';
-import Seller from '../models/seller.js'; // Assume you have a Seller model
+import User from '../models/user.js';
 
 const router = express.Router();
 
 // GET route to display the registration page
 router.get('/register', (req, res) => {
-    res.render('seller_registration');
+    res.render('seller_reg');
 });
 
 // POST route to handle form submission
 router.post('/register', async (req, res) => {
     try {
-        const { username, email, password, storeName, address } = req.body;
+        const { username, emailid, storeName, isseller } = req.body;
+        const user = await User.findOne({ email: emailid });
+        console.log(user);
+        if(user!=null){
+        user.isSeller= isseller;
+        
+        user.storename= storeName;
 
-        // Save seller to the database
-        const newSeller = new Seller({
-            username,
-            email,
-            password, // You should hash this before saving
-            storeName,
-            address,
-        });
+        await user.save();
+        
+        }
 
-        await newSeller.save();
-        res.redirect('/log'); // Redirect to login after registration
+       
+        res.redirect('/'); 
     } catch (error) {
         console.error('Error during seller registration:', error);
         res.status(500).send('Error during registration. Please try again.');
