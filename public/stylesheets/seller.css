@@ -1,13 +1,13 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #ebc9f3;
     margin: 0;
     padding: 0;
 }
 
 .dashboard-header {
-    background-color: #007bff;
+    background-color: #577697;
     color: white;
     padding: 10px 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -40,7 +40,7 @@ body {
 
 .card .card-title {
     font-size: 1.5rem;
-    color: #007bff;
+    color: #101112;
     font-weight: bold;
 }
 
@@ -68,7 +68,7 @@ h2 {
 }
 
 .dashboard-footer {
-    background-color: #007bff;
+    background-color: #3f1968;
     color: white;
     padding: 10px 0;
     position: absolute;
@@ -91,4 +91,392 @@ h2 {
     .quick-actions .btn {
         font-size: 1rem;
     }
+}
+header {
+    color: #030303;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    text-align: center;
+}
+
+/* Background Image for Header */
+.container1 {
+    
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    background-position: center;
+    position: relative;
+    z-index: 3;
+}
+.container1 img{
+    height:420px;
+    width:100%;
+}
+
+/* Navigation Bar Styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+/* Cart Logo Styling */
+nav ul li a img {
+    width: 30px; /* Adjust size */
+    height: auto;
+    display: inline-block;
+    margin-right: 8px; /* Space between image and text */
+    vertical-align: middle; /* Align with text */
+}
+
+nav ul li a h6 {
+    display: inline-block;
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold;
+    color: #333; /* Adjust text color */
+    margin: 0;
+    vertical-align: middle; /* Align with image */
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: inherit; /* Inherit text color from parent */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #50047c; /* Change color on hover */
+}
+
+nav ul li {
+    position: relative;
+}
+
+/* Additional styling for cart hover or dropdown */
+nav ul li:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+}
+
+
+/* Search Form Styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #410856;
+    box-shadow: 5px 5px 10px rgb(40, 39, 39);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.search-form button:hover {
+    background-color: #555;
+}
+
+
+/* Dropdown Menu Styling */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #3c1948;
+    padding: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+    
+}
+
+/* Symbol Styling */
+.symbol {
+    background-image: url('../images/Lumiere.png');
+    background-size: cover;
+    height: 37px;
+    width: 112px;
+    object-fit: cover;
+   
+    
+}
+.add-to-cart {
+    background-color: #08471b;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 80px;
+    padding-right: 100px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    margin-top: 60px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+   
+}
+
+.btn {
+    background-color: #48236f;
+}
+
+.add-to-cart:hover {
+    background-color: #555;
+}
+
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    
+    
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 20px;
+    color: #030303;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn img {
+    margin-right: 8px; /* Space between icon and text */
+    width:10px;
+    height:25px;
+}
+
+.login-btn:hover {
+    
+    transform: scale(1.1); 
+}
+.user-actions {
+    display: inline-block;
+   
+    margin-right: 55px;
+    gap: 10px;
+}
+
+.profile-btn img, .login-btn img {
+    width: 55px;
+    height: 38px;
+}
+
+.profile-btn, .logout-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.profile-btn h6, .logout-btn h6 {
+    
+    font-size: 16px;
+    color: #333;
+}
+.user-actions {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    width: 150px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+   
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-menu table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dropdown-menu td {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    color: #007bff;
+    font-weight: bold;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+/* Cart Logo Styling */
+nav ul li a img {
+    width: 30px; /* Adjust size */
+    height: auto;
+    display: inline-block;
+    margin-right: 8px; /* Space between image and text */
+    vertical-align: middle; /* Align with text */
+}
+
+nav ul li a h6 {
+    display: inline-block;
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold;
+    color: #333; /* Adjust text color */
+    margin: 0;
+    vertical-align: middle; /* Align with image */
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: inherit; /* Inherit text color from parent */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #556b83; /* Change color on hover */
+}
+
+nav ul li {
+    position: relative;
+}
+
+/* Additional styling for cart hover or dropdown */
+nav ul li:hover .cart-dropdown {
+    display: block;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #3c1948;
+    padding: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+    
 }

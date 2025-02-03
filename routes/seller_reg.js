@@ -20,7 +20,7 @@ router.post('/register', async (req, res) => {
         user.storename= storeName;
 
         await user.save();
-        
+        req.session.isSeller= user.isSeller;
         }
 
        

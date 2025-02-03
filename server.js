@@ -17,7 +17,7 @@ import registration from './routes/registration.js';
 import updatedetails from './routes/profile_details.js';
 import sellerdetails from './routes/seller.js';
 import sellerRegistrationRouter from './routes/seller_reg.js';
-
+import manageproducts from './routes/mng_prod.js';
 
 
 
@@ -122,6 +122,7 @@ app.use('/log',login);
 app.use('/register', registration);
 app.use('/seller', sellerdetails);
 app.use('/seller_reg', sellerRegistrationRouter);
+app.use('/manage_prod',manageproducts);
 
 // Start the server
 app.listen(port, () => {

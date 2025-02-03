@@ -6,47 +6,95 @@
     <link rel="icon" href="/images/cart-icon.jpg" type="image/x-icon">
     <title>Seller Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/stylesheets/seller.css" rel="stylesheet">
 </head>
 <body>
     <% if (session.username && session.isSeller) { %>
-    <header class="dashboard-header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">
-                <img src="/images/cart-icon.jpg" alt="Logo" class="logo">
-                Seller Dashboard
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard">Home</a>
+        <header>
+            <nav>
+                <div class="symbol"></div>
+                <ul>
+                    <li><a href="/">Home</a>
+                      
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard/products">My Products</a>
+                    <li><a href="#">Shop</a>
+                        <ul class="dropdown">
+                            <li><a href="/acne">Acne</a></li>
+                            <li><a href="/acne_marks">Acne Marks</a></li>
+                            <li><a href="/pigmentation">Pigmentation</a></li>
+                            <li><a href="/glowing_skin">Glowing skin</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard/orders">Orders</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/log/logout">Logout</a>
+                    <li><a href="/cart">
+                        <i >
+                            <img src="/images/cart-icon.jpg" alt="Cart"><h6>Cart</h6>
+                        </i>
+                        </a>
+                    
                     </li>
                 </ul>
-            </div>
-        </nav>
-    </header>
-
+               
+                <form class="search-form" action="/search" method="GET">
+                    <input type="text" name="q" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </form>
+                <% if (session.username) { %>
+                    <div class="user-actions">
+                        <a  class="profile-btn">
+                            <img src="<%= session.profilePic || '/images/User.png' %>" alt="Profile">
+                        </a>
+                        <div class="dropdown-menu">
+                            <table>
+                                <tr>
+                                    <td><a href="/profile">Profile</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="/dermacash">Derma Cash</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="/address">Your Address</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="/contact-us">Contact Us</a></td>
+                                </tr>
+                                <tr>
+                                    <% if (session.username && session.isSeller) { %>
+                                    <td><a href="/seller">Seller Dashboard</a></td> <%} else{ %>
+                                        <td><a href="/seller_reg/register">Sell</a></td> <%} %>
+                                </tr>
+                                <tr>
+                                
+                                <tr>
+                                    <td>
+                                        <a href="/log/logout" class="logout-btn">
+                                Logout
+                                    
+                                    </a>
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <a href="/log" class="login-btn">
+                        <img src="/images/login.png" alt="Login"><h6>Login</h6>
+                    </a>
+                <% } %>
+              
+               
+            </nav>
+            
+        </header>
     <main class="dashboard-main container mt-5">
-        <h1>Welcome, <%= session.username %></h1>
+        <h1>Welcome to Seller dashboard, <%= session.username %></h1>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Total Products</h5>
                         
-                        <a href="/dashboard/products" class="btn btn-primary">Manage Products</a>
+                        <a href="/manage_prod" class="btn btn-primary">Manage Products</a>
                     </div>
                 </div>
             </div>
@@ -74,10 +122,10 @@
             <h2>Quick Actions</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <a href="/dashboard/add-product" class="btn btn-success w-100">Add New Product</a>
+                    <a href="/add-product" class="btn btn-success w-100">Add New Product</a>
                 </div>
                 <div class="col-md-6">
-                    <a href="/dashboard/settings" class="btn btn-secondary w-100">Account Settings</a>
+                    <a href="/profile" class="btn btn-secondary w-100">Account Settings</a>
                 </div>
             </div>
         </section>
@@ -94,5 +142,27 @@
     <% } %>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-cPLJy5V/9zy0wUqfY5X+7CkQSjIVrx6wu70ueXIR5htgAs6CBHXUbgmUMVdAyjUu" crossorigin="anonymous"></script>
+    <script>
+        const profileBtn = document.querySelector('.profile-btn');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+        profileBtn.addEventListener('mouseover', () => {
+            dropdownMenu.classList.add('show');
+            setTimeout(() => {
+                dropdownMenu.classList.remove('show');
+            }, 5000); // Dropdown will stay visible for 3 seconds
+        });
+    
+        dropdownMenu.addEventListener('mouseover', () => {
+            clearTimeout(timeout);
+            dropdownMenu.classList.add('show');
+        });
+    
+        dropdownMenu.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                dropdownMenu.classList.remove('show');
+            }, 5000);
+        });
+    </script>
 </body>
 </html>

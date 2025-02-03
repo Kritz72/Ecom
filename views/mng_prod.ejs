@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/seller.css" rel="stylesheet">
+</head>
+<body>
+    <% if (session.username && session.isSeller) { %>
+        <header class="bg-dark text-white p-3">
+            <h2 class="text-center">Manage Products</h2>
+        </header>
+        <main class="container mt-5">
+            <a href="/add-product" class="btn btn-success mb-3">Add New Product</a>
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(product => { %>
+                        <tr>
+                            <td><%= product.id %></td>
+                            <td><%= product.name %></td>
+                            <td><%= product.category %></td>
+                            <td>₹<%= product.price %></td>
+                            <td>
+                                <a href="/manage_prod/edit-product/<%= product.id %>" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="/manage_prod/delete-product/<%= product.id %>" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </main>
+    <% } else { %>
+        <div class="container text-center mt-5">
+            <h2>Unauthorized Access</h2>
+            <p>Please <a href="/log">log in</a> as a seller to manage products.</p>
+        </div>
+    <% } %>
+</body>
+</html>

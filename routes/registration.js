@@ -13,14 +13,8 @@ router.post('/register', async (req, res) => {
     }
 
     try {
-        // Check if the username or email already exists
-        const existingUser = await User.findOne({
-            $or: [{ username }, { email }]
-        });
-
-        if (existingUser) {
-            return res.status(400).send('User with this username or email already exists.');
-        }
+       
+        
 
         // Find the user by email to validate OTP
         const user = await User.findOne({ email });

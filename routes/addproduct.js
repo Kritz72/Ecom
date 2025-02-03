@@ -15,9 +15,9 @@ router.post('/add-product', upload.single('image'), async (req, res) => {
     const { name, price, description, category } = req.body;
     console.log(req.body)
     const imageUrl = req.file ? `/uploads/${req.file.filename}` : ''; // Get image path if file is uploaded
-
+    const seller_email=req.session.email;
     // Create a new product instance with the image path and save it to MongoDB
-    const product = new Product({ name, price, imageUrl, description, category });
+    const product = new Product({ name, price, imageUrl, description, category, seller_email });
     
     try {
         await product.save();
