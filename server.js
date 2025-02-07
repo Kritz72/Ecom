@@ -18,6 +18,7 @@ import updatedetails from './routes/profile_details.js';
 import sellerdetails from './routes/seller.js';
 import sellerRegistrationRouter from './routes/seller_reg.js';
 import manageproducts from './routes/mng_prod.js';
+import childHelpRouter from './routes/childHelp.js'; 
 
 
 
@@ -123,6 +124,7 @@ app.use('/register', registration);
 app.use('/seller', sellerdetails);
 app.use('/seller_reg', sellerRegistrationRouter);
 app.use('/manage_prod',manageproducts);
+app.use('/child-help', childHelpRouter);
 
 // Start the server
 app.listen(port, () => {

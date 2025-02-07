@@ -1,69 +1,563 @@
-/* style.css */
-
-/* General body styling */
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    top: 100%;
+    left: 0;
+    width: 150px;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    padding: 10px;
+}
+
+.dropdown li a {
+    color: #333;
+    display: block;
+    transition: background 0.3s;
+}
+
+.dropdown li a:hover {
+    background: #f1f1f1;
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-form button {
+    padding: 6px 10px;
+    margin-left: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-form button:hover {
+    background: #0056b3;
+}
+
+/* Form Container */
+.form-container {
+    background: #fff;
+    padding: 30px;
+    margin: 100px auto;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #24384d;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    background-color: #6b1d9c;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Profile Dropdown */
+.user-actions {
+    position: relative;
+}
+
+.profile-btn img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.profile-btn img:hover {
+    transform: scale(1.1);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    text-align: left;
+}
+
+.user-actions:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu table td a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.dropdown-menu table td a:hover {
+    background: #f1f1f1;
+}
+/* Navigation Bar Styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+/* Cart Logo Styling */
+nav ul li a img {
+    width: 30px; /* Adjust size */
+    height: auto;
+    display: inline-block;
+    margin-right: 8px; /* Space between image and text */
+    vertical-align: middle; /* Align with text */
+}
+
+nav ul li a h6 {
+    display: inline-block;
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold;
+    color: #333; /* Adjust text color */
+    margin: 0;
+    vertical-align: middle; /* Align with image */
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: inherit; /* Inherit text color from parent */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #50047c; /* Change color on hover */
+}
+
+nav ul li {
+    position: relative;
+}
+
+/* Additional styling for cart hover or dropdown */
+nav ul li:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+}
+
+
+/* Search Form Styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #410856;
+    box-shadow: 5px 5px 10px rgb(40, 39, 39);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.search-form button:hover {
+    background-color: #555;
+}
+
+
+/* Dropdown Menu Styling */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #3c1948;
+    padding: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+    
+}
+
+/* Symbol Styling */
+.symbol {
+    background-image: url('../images/Lumiere.png');
+    background-size: cover;
+    height: 37px;
+    width: 112px;
+    object-fit: cover;
+   
+    
+}
+.add-to-cart {
+    background-color: #08471b;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
+    padding-left: 80px;
+    padding-right: 100px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    margin-top: 60px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+   
 }
 
-/* Form container styling */
-.form-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    box-sizing: border-box;
+.btn {
+    background-color: #48236f;
 }
 
-/* Heading style */
-h1 {
-    text-align: center;
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
+.add-to-cart:hover {
+    background-color: #555;
 }
 
-/* Label styling */
-label {
-    display: block;
-    color: #555;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-/* Input styling */
-input[type="text"],
-input[type="number"],
-input[type="url"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* Button styling */
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    
+    
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
     font-size: 16px;
+    margin-left: 20px;
+    color: #030303;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn img {
+    margin-right: 8px; /* Space between icon and text */
+    width:10px;
+    height:25px;
+}
+
+.login-btn:hover {
+    
+    transform: scale(1.1); 
+}
+.user-actions {
+    display: inline-block;
+   
+    margin-right: 55px;
+    gap: 10px;
+}
+
+.profile-btn img, .login-btn img {
+    width: 55px;
+    height: 38px;
+}
+
+.profile-btn, .logout-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.profile-btn h6, .logout-btn h6 {
+    
+    font-size: 16px;
+    color: #333;
+}
+.user-actions {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    width: 150px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+   
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-menu table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dropdown-menu td {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    color: #2e5782;
+    font-weight: bold;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+/* Cart Logo Styling */
+nav ul li a img {
+    width: 30px; /* Adjust size */
+    height: auto;
+    display: inline-block;
+    margin-right: 8px; /* Space between image and text */
+    vertical-align: middle; /* Align with text */
+}
+
+nav ul li a h6 {
+    display: inline-block;
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold;
+    color: #333; /* Adjust text color */
+    margin: 0;
+    vertical-align: middle; /* Align with image */
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: inherit; /* Inherit text color from parent */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #556b83; /* Change color on hover */
+}
+
+nav ul li {
+    position: relative;
+}
+
+/* Additional styling for cart hover or dropdown */
+nav ul li:hover .cart-dropdown {
+    display: block;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #3c1948;
+    padding: 10px;
+    display: block;
     font-weight: bold;
 }
 
-/* Button hover effect */
-button[type="submit"]:hover {
-    background-color: #45a049;
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+    
 }
